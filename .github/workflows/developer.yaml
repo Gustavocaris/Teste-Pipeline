@@ -4,3 +4,7 @@ on:
   push:
     branches:
       - developer
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
