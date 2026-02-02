@@ -25,3 +25,9 @@ jobs:
 
         - name: Login no Amazon ECR
           uses: aws-actions/amazon-ecr-login@v2
+
+        - name: Build and Push Docker image
+        env:
+          ECR_REGISTRY: 833899002257.dkr.ecr.sa-east-1.amazonaws.com
+          ECR_REPOSITORY: teste-pipeline
+          IMAGE_TAG: latest
