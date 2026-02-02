@@ -1,10 +1,16 @@
-from flask import Flask
+const express = require("express");
 
-app = Flask(__name__)
+const app = express();
+const PORT = 5000;
 
-@app.route("/")
-def hello():
-    return "App rodando na AWS"
+app.get("/", (req, res) => {
+  res.send("Spotify App rodando na AWS via Docker + ECR 🚀");
+});
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok" });
+});
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`App rodando na porta ${PORT}`);
+});
