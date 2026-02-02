@@ -14,11 +14,14 @@ jobs:
       contents: read
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+        - name: Checkout code
+          uses: actions/checkout@v4
 
         - name: Configure AWS credentials (OIDC)
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: arn:aws:iam::833899002257:role/github-actions-ecr
-          aws-region: sa-east-1
+          uses: aws-actions/configure-aws-credentials@v4
+          with:
+            role-to-assume: arn:aws:iam::833899002257:role/github-actions-ecr
+            aws-region: sa-east-1
+
+        - name: Login no Amazon ECR
+          uses: aws-actions/amazon-ecr-login@v2
